@@ -5,9 +5,9 @@ fpath P(const char* path) {
   
   if (unlikely(strlen(path) >= PATH_MAX)) {
     error("Path too long '%s'", path);
-  } else {  
-    strcpy(p.ptr, path);
   }
+  
+  strcpy(p.ptr, path);
   
   return p;
 }
