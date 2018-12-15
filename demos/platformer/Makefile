@@ -14,6 +14,12 @@ ifeq ($(findstring Linux,$(PLATFORM)),Linux)
 	LFLAGS= -lcorange -lGL -lSDL2 -lSDL2_net -lSDL2_mixer -lm
 endif
 
+ifeq ($(findstring FreeBSD,$(PLATFORM)),FreeBSD)
+	OUT=$(DEMO)
+	LFLAGS= -lcorange -lGL -lSDL2 -lSDL2_net -lSDL2_mixer -lm -L/usr/local/lib
+	CFLAGS += -I/usr/local/include
+endif
+
 ifeq ($(findstring Darwin,$(PLATFORM)),Darwin)
 	OUT=$(DEMO)
 	LFLAGS= -lcorange -lGL -lSDLmain -lSDL2
