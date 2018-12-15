@@ -16,6 +16,13 @@ ifeq ($(findstring Linux,$(PLATFORM)),Linux)
 	LFLAGS += -lGL
 endif
 
+ifeq ($(findstring FreeBSD,$(PLATFORM)),FreeBSD)
+	DYNAMIC = libcorange.so
+	STATIC = libcorange.a
+	CFLAGS += -fPIC -I/usr/local/include
+	LFLAGS += -lGL -L/usr/local/lib
+endif
+
 ifeq ($(findstring Darwin,$(PLATFORM)),Darwin)
 	DYNAMIC = libcorange.so
 	STATIC = libcorange.a
